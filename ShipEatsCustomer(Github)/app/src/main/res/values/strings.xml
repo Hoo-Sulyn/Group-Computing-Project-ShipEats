@@ -2,4 +2,5 @@
     <string name="app_name">ShipEats(Customer)</string>
     <string name="forgot_password"><u>Forgot Password</u></string>
     <string name="create_a_new_account"><u>Create a new account</u></string>
+    <string name="sign_in"><u>Have an account? Sign in</u></string>
 </resources>

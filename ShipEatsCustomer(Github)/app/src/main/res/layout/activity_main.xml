@@ -82,11 +82,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:inputType="textEmailAddress"
                     android:hint="Email Address"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="0dp"
                     android:gravity="center_vertical"
-                    android:textSize="16sp" />
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -103,11 +105,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:inputType="textPassword"
                     android:hint="Password"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="0dp"
                     android:gravity="center_vertical"
-                    android:textSize="16sp" />
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- FORGOT PASSWORD -->
@@ -135,6 +139,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:id="@+id/login_button"
                 android:text="Login"/>
 
             <!-- CREATE NEW ACCOUNT OPTION -->
