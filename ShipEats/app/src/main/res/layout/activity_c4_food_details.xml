@@ -26,11 +26,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <ImageView
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="230dp"
-                        android:src="@drawable/no_image_available"/>
-                    
+                        android:layout_height="230dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/no_image_available" />
+
+                        <TextView
+                            android:id="@+id/close_food_details"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="top|start"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/circle_white"
+                            android:gravity="center"
+                            android:text="✕"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"/>
+                    </FrameLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,10 +125,12 @@
                         android:text="Special Instructions"/>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="110dp"
+                        app:hintEnabled="false">
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
+                            android:gravity="top|start"
                             android:hint="Let us know if you are allergic to anything or if we need to avoid anything"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -149,7 +169,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:thumbTint="#04397B"
-                            app:trackTint="#D8D8D8"/>
+                            app:trackTint="#D8D8D8"
+                            android:id="@+id/want_cutlery"/>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -157,13 +178,13 @@
     </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="20dp"
         android:elevation="10dp"
-        android:outlineProvider="background">
+        android:outlineProvider="background"
+        android:paddingHorizontal="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -204,14 +225,12 @@
             android:layout_weight="1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_to_cart_button"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:backgroundTint="#E69303"
+            app:cornerRadius="12dp"
             android:text="Add to Cart"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"/>
+            android:id="@+id/add_to_cart_button"/>
 
     </LinearLayout>
 </LinearLayout>
