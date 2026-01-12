@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipEatsCustomer">
         <activity
+            android:name=".C5_History_Page"
+            android:exported="false" />
+        <activity
             android:name=".C4_Food_Details"
             android:exported="false" />
         <activity
