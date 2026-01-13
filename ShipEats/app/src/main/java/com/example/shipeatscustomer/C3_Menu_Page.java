@@ -22,10 +22,7 @@ public class C3_Menu_Page extends AppCompatActivity {
 
         ImageView menu_icon = findViewById(R.id.menu_icon);
         TextView menu_text = findViewById(R.id.menu_text);
-        ImageView history_icon = findViewById(R.id.history_icon);
-        TextView history_text = findViewById(R.id.history_text);
-        ImageView settings_icon = findViewById(R.id.settings_icon);
-        TextView settings_text = findViewById(R.id.settings_text);
+
 
         //CHANGE FOOTER BUTTON COLOR
         int activeColor = Color.parseColor("#FFD700");

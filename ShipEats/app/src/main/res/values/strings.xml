@@ -5,4 +5,5 @@
     <string name="sign_in"><u>Have an account? Sign in</u></string>
     <string name="clear_history"><u>Clear history</u></string>
     <string name="empty_string">\t\t\t</string>
+    <string name="view_details"><u>View Details</u></string>
 </resources>
