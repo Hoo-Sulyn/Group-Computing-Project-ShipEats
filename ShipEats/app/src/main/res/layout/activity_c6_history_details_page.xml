@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="#6e6e6e"
                         android:id="@+id/order_date"
-                        android:text="10 Nov 2025"/>
+                        android:text=""/>
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
