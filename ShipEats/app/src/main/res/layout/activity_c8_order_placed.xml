@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFEF0"
+    android:gravity="center"
+    android:padding="20dp"
+    tools:context=".C8_Order_Placed">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:padding="20dp"
+        android:textSize="60sp"
+        android:text="🎉"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="Your Order Has Been Placed!"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#888484"
+        android:text="Your order number :"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:text="-"
+        android:id="@+id/order_number"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="#1E5D8B"
+        app:cornerRadius="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Done"
+        android:id="@+id/done_button"/>
+</LinearLayout>

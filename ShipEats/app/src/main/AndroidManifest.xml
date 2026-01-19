@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipEatsCustomer">
         <activity
+            android:name=".C8_Order_Placed"
+            android:exported="false" />
+        <activity
             android:name=".C7_Shopping_Cart"
             android:exported="false" />
         <activity
