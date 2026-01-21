@@ -44,6 +44,17 @@
                 android:id="@+id/shopping_cart_items">
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/empty_cart_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="40dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#8E8E8E"
+                android:text="There are no items in your shopping cart."
+                android:visibility="visible" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,7 +62,9 @@
                 android:paddingHorizontal="25dp"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:animateLayoutChanges="true"
+                android:id="@+id/pre_order_container">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingHorizontal="10dp"
+                    android:visibility="gone"
                     android:id="@+id/enable_pre_order">
                     <TextView
                         android:layout_width="wrap_content"
@@ -137,7 +151,8 @@
         android:paddingHorizontal="20dp"
         android:background="@color/white"
         android:elevation="15dp"
-        android:outlineProvider="background">
+        android:outlineProvider="background"
+        android:id="@+id/checkout_summary_container">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
