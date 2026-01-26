@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipEatsCustomer">
         <activity
+            android:name=".A6_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".A3_Inventory_Management"
+            android:exported="false" />
+        <activity
+            android:name=".A2_Dashboard"
+            android:exported="false" />
+        <activity
             android:name=".C8_Order_Placed"
             android:exported="false" />
         <activity

@@ -6,4 +6,17 @@
     </style>
 
     <style name="Theme.ShipEatsCustomer" parent="Base.Theme.ShipEatsCustomer" />
+
+    <style name="BottomRoundedAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">32dp</item>
+        <item name="cornerSizeBottomRight">32dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+    </style>
+
+    <style name="CircleImageAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

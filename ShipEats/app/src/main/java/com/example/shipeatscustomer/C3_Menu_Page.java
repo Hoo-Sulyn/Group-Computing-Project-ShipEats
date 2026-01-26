@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class C3_Menu_Page extends AppCompatActivity {
 
@@ -29,10 +32,36 @@ public class C3_Menu_Page extends AppCompatActivity {
         ImageView shopping_cart = findViewById(R.id.shopping_cart_icon);
         ImageView notification = findViewById(R.id.notification_icon);
         LinearLayout filter_icon = findViewById(R.id.filter_icon);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        LinearLayout filterBtn = findViewById(R.id.filter_icon);
+        TextView close_tab_button = findViewById(R.id.close_tab_button);
+        com.google.android.material.search.SearchBar searchBar = findViewById(R.id.search_bar);
+
+        filterBtn.setOnClickListener(v -> {
+            drawerLayout.openDrawer(androidx.core.view.GravityCompat.START);
+        });
+
+        close_tab_button.setOnClickListener(v -> drawerLayout.closeDrawer(GravityCompat.START));
 
         history_nav.setOnClickListener(v -> startActivity(new Intent(this, C5_History_Page.class)));
 //        settings_nav.setOnClickListener(v -> startActivity(new Intent(this, )));
         shopping_cart.setOnClickListener(v -> startActivity(new Intent(this, C7_Shopping_Cart.class)));
+
+
+        // This listens for when the user presses the "Search" icon on their keyboard
+        searchBar.setOnKeyListener((v, keyCode, event) -> {
+            // If the event is a key-down event on the "enter" button
+            if ((event.getAction() == android.view.KeyEvent.ACTION_DOWN) &&
+                    (keyCode == android.view.KeyEvent.KEYCODE_ENTER)) {
+
+                String query = searchBar.getText().toString();
+                if (!query.isEmpty()) {
+                    performSearch(query);
+                }
+                return true;
+            }
+            return false;
+        });
 
 
         //CHANGE FOOTER BUTTON COLOR
@@ -42,5 +71,16 @@ public class C3_Menu_Page extends AppCompatActivity {
         menu_text.setTypeface(null, Typeface.BOLD);
     }
 
+    private void performSearch(String query) {
+        // 1. Clear your food_card_container
+        LinearLayout container = findViewById(R.id.food_card_container);
+        container.removeAllViews();
 
+        // 2. Logic to filter your list (Example)
+        // if (foodItem.getName().toLowerCase().contains(query.toLowerCase())) {
+        //    displayFoodItem(foodItem);
+        // }
+
+        Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+    }
 }
