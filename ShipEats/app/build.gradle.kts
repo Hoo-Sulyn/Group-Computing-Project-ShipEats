@@ -46,4 +46,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

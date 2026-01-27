@@ -72,15 +72,26 @@ public class C3_Menu_Page extends AppCompatActivity {
     }
 
     private void performSearch(String query) {
-        // 1. Clear your food_card_container
         LinearLayout container = findViewById(R.id.food_card_container);
-        container.removeAllViews();
+        TextView noMenuText = findViewById(R.id.no_menu_text);
 
-        // 2. Logic to filter your list (Example)
-        // if (foodItem.getName().toLowerCase().contains(query.toLowerCase())) {
-        //    displayFoodItem(foodItem);
+        container.removeAllViews(); // Clear previous results
+
+        // Logic to count results
+        int resultsFound = 0;
+
+        // Simulate filtering
+        // for (Item item : itemList) {
+        //    if(item.matches(query)) {
+        //        addCardToContainer(item);
+        //        resultsFound++;
+        //    }
         // }
 
-        Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+        if (resultsFound == 0) {
+            noMenuText.setVisibility(android.view.View.VISIBLE);
+        } else {
+            noMenuText.setVisibility(android.view.View.GONE);
+        }
     }
 }

@@ -7,4 +7,7 @@
     <string name="empty_string">\t\t\t</string>
     <string name="view_details"><u>View Details</u></string>
     <string name="shopping_cart_reminder"><b>Reminder: </b>Closing time is </string>
+    <string name="notificationcustomizationnote">Customize your notifications based on your preferences.</string>
+    <string name="notificationheadertitle">Customize Your Notifications</string>
+    <string name="notifications">Notifications</string>
 </resources>

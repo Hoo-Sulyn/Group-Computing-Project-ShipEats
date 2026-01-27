@@ -30,6 +30,8 @@
             android:hint="Search"
             android:focusable="true"
             android:clickable="true"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
             app:navigationIcon="@null"/>
       <ImageView
           android:id="@+id/notification_icon"

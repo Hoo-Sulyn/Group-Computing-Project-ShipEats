@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDF0"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ivBackAbout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/anchor_icon" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="About"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:lineSpacingExtra="4dp"
+            android:text="The Deck 4 Windjammer Cafe, is a cafeteria that is located at Peninsula College: The Ship Campus. The mission of our application; The Ship Eats is to work on reducing food waste and helping students save on their finances when it comes to budgeting on food.\n\nIn ShipEats, we sell food that are available after lunch hours at a discounted price for our students.\n\ni) Mondays-Fridays, weekends not opened.\nii) Opens at 8a.m. until 5p.m."
+            android:textColor="#5D5D5D" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="OUR MISSION"
+            android:textColor="#5D5D5D"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="4dp"
+            android:text="In our services, we prioritize user satisfaction, upmost reliability and improvements that can be made.\n\nAs for the main mission, we would like to focus on the reduction of food wastage.\n\nBut, at the same time ensuring that quality, well-condition food is served to our customers."
+            android:textColor="#5D5D5D" />
+    </LinearLayout>
+</ScrollView>

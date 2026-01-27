@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDF0"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/anchor_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="Terms &amp; \nCondition"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="ORDERS"
+            android:textColor="#5D5D5D"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="1.  Any cancellation of order is made by 4:30 pm the latest. Or 30 minutes before pickup time.\n\n2.  Please check the dietary information regarding any allergies. This ensures safety of our consumers.\n\n3.  In case there's any complaints and constructive feedbacks, please drop them in the feedback box, or report sections. We are pleased to improve our services.\n\n4.  Leftover food that are edible and still in good condition are only sold. Any signs of spoilage will be disposed."
+            android:textColor="#5D5D5D"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="ONLINE SERVICES"
+            android:textColor="#5D5D5D"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="1.  Payments are only to be done using Touch N' GO E Wallet, Online Banking and Card Transaction online.\n\n2.  Cash on delivery is not accepted.\n\n3.  User information is in safe hands. We value user privacy.\n\n4.  Application is only available for students and staffs of Peninsula College, The Ship Campus.\n\n5.  We are not afflicted with any external organizations."
+            android:textColor="#5D5D5D"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>

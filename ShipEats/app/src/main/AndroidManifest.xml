@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipEatsCustomer">
         <activity
+            android:name=".C14_Terms_And_Condition"
+            android:exported="false" />
+        <activity
+            android:name=".C13_Settings_Page"
+            android:exported="false" />
+        <activity
+            android:name=".C12_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".C11_Payment_Method"
+            android:exported="false" />
+        <activity
+            android:name=".C10_Notifications"
+            android:exported="false" />
+        <activity
+            android:name=".C9_About"
+            android:exported="false" />
+        <activity
             android:name=".A6_Profile"
             android:exported="false" />
         <activity
