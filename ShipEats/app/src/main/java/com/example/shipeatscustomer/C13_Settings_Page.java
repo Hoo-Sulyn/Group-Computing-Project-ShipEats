@@ -85,8 +85,7 @@ public class C13_Settings_Page extends AppCompatActivity {
 
         // Order History
         findViewById(R.id.btnOrderHistory).setOnClickListener(v -> {
-            // startActivity(new Intent(this, OrderHistoryActivity.class));
-            Toast.makeText(this, "Order History coming soon!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, C5_History_Page.class));
         });
 
         // Log Out with Confirmation Dialog
@@ -128,9 +127,15 @@ public class C13_Settings_Page extends AppCompatActivity {
                 .setTitle("Log Out")
                 .setMessage("Are you sure you want to log out?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    // Logic to clear session could go here
+
+                    Intent intent = new Intent(C13_Settings_Page.this, MainActivity.class);
+
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    startActivity(intent);
+
                     Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-                    // finish();
+                    finish();
                 })
                 .setNegativeButton("No", null)
                 .show();

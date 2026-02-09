@@ -44,7 +44,7 @@ public class C3_Menu_Page extends AppCompatActivity {
         close_tab_button.setOnClickListener(v -> drawerLayout.closeDrawer(GravityCompat.START));
 
         history_nav.setOnClickListener(v -> startActivity(new Intent(this, C5_History_Page.class)));
-//        settings_nav.setOnClickListener(v -> startActivity(new Intent(this, )));
+        settings_nav.setOnClickListener(v -> startActivity(new Intent(this, C13_Settings_Page.class)));
         shopping_cart.setOnClickListener(v -> startActivity(new Intent(this, C7_Shopping_Cart.class)));
 
 

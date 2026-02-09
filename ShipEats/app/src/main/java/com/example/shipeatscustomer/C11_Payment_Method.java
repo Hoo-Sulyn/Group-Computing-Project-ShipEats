@@ -12,6 +12,7 @@ public class C11_Payment_Method extends AppCompatActivity {
 
     private MaterialCardView btnCard, btnFPX;
     private TextView tvPaymentInfo;
+    private ImageView ivBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class C11_Payment_Method extends AppCompatActivity {
         btnCard = findViewById(R.id.btnCardInfo);
         btnFPX = findViewById(R.id.btnFPXInfo);
         tvPaymentInfo = findViewById(R.id.tvPaymentInfo);
-        ImageView ivBack = findViewById(R.id.ivBack);
+        ivBack = findViewById(R.id.ivBack);
 
         // 2. Back Button Logic
         ivBack.setOnClickListener(v -> finish());
