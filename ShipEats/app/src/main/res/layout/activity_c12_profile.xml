@@ -189,16 +189,6 @@
                 android:textColor="#FFFFFF"
                 app:cornerRadius="12dp" />
 
-            <Button
-                android:id="@+id/btnLogOutBottom"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#FFAB91"
-                android:text="Log Out"
-                android:textColor="#D32F2F"
-                app:cornerRadius="12dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
