@@ -31,7 +31,7 @@ public class C5_History_Page extends AppCompatActivity {
 
         back_button.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
         menu_nav.setOnClickListener(v -> startActivity(new Intent(this, C3_Menu_Page.class)));
-        //settings_nav.setOnClickListener(v -> startActivity(new Intent(this, )));
+        settings_nav.setOnClickListener(v -> startActivity(new Intent(this, C13_Settings_Page.class )));
 
         int activeColor = Color.parseColor("#FFD700");
         history_icon.setColorFilter(activeColor);
