@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/rate_food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your Meal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#032565"/>
+
+    <RatingBar
+        android:id="@+id/food_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:progressTint="#E69303"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rating_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tell us how it tasted..."
+            android:lines="3"
+            android:gravity="top"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

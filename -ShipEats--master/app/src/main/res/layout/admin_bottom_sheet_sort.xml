@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_rounded_bg"
+    android:paddingBottom="32dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCCCCC" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort By"
+        android:textColor="#032565"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- NAME section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textColor="#888888"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"/>
+
+    <LinearLayout
+        android:id="@+id/sort_name_az"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name A → Z"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_name_az"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="visible"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sort_name_za"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name Z → A"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_name_za"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- PRICE section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRICE"
+        android:textColor="#888888"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"/>
+
+    <LinearLayout
+        android:id="@+id/sort_price_asc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price: Low to High"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_price_asc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sort_price_desc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price: High to Low"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_price_desc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- STOCK section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOCK LEVEL"
+        android:textColor="#888888"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"/>
+
+    <LinearLayout
+        android:id="@+id/sort_stock_asc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stock: Low to High"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_stock_asc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sort_stock_desc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stock: High to Low"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_stock_desc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Ship Eats</string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
+    <string name="create_a_new_account"><u>Create a new account</u></string>
+    <string name="sign_in"><u>Have an account? Sign in</u></string>
+    <string name="clear_history"><u>Clear history</u></string>
+    <string name="empty_string">\t\t\t</string>
+    <string name="view_details"><u>View Details</u></string>
+    <string name="shopping_cart_reminder"><b>Reminder: </b>Closing time is </string>
+    <string name="are_you_sure">ARE YOU SURE?</string>
+    <string name="delete_menu_confirmation">Do you really want to delete this MENU?\nThis process cannot be undone.</string>
+    <string name="cancel">CANCEL</string>
+    <string name="delete">DELETE</string>
+    <string-array name="quantity_array">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="category_array">
+        <item>Main Dish</item>
+        <item>Side Dish</item>
+        <item>Drink</item>
+        <item>Dessert</item>
+    </string-array>
+
+    <!-- Missing strings for Notifications -->
+    <string name="notificationcustomizationnote">Control how you want to receive updates from ShipEats.</string>
+    <string name="notificationheadertitle">System Notifications</string>
+    <string name="notifications">Notifications</string>
+
+</resources>

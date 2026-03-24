@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.intent.permission.INTERNET" />
+    <uses-permission android:name="android.intent.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.intent.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/shipeats_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/shipeats_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ShipEatsCustomer">
+        
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> 
+        
+        <!-- Admin Flow Activities -->
+        <activity
+            android:name=".A1_Login_Page" android:exported="false" />
+        <activity
+            android:name=".A2_Dashboard" android:exported="false" />
+        <activity
+            android:name=".A3_Inventory_Management" android:exported="false" />
+        <activity
+            android:name=".A4_CustomerOrderActivity" android:exported="true" />
+        <activity
+            android:name=".A5_MenuManagementActivity" android:exported="false" />
+        <activity
+            android:name=".MenuPreviewActivity" android:exported="false" />
+        
+        <activity
+            android:name=".A4_OrderDetailPendingActivity"
+            android:theme="@style/Theme.ShipEats.DialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".A4_OrderDetailPreparingActivity"
+            android:theme="@style/Theme.ShipEats.DialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".A4_OrderDetailReadyActivity"
+            android:theme="@style/Theme.ShipEats.DialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".A4_OrderDetailCompletedActivity"
+            android:theme="@style/Theme.ShipEats.DialogActivity"
+            android:exported="false" />
+            
+        <!-- Popups / Dialog Activities -->
+        <activity
+            android:name=".OrderAcceptedPPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".OrderReadyPPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".OrderCompletedPPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".OrderDeletedPPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".MenuAddPPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".MenuCompletePPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        <activity
+            android:name=".MenuDeletePPActivity" android:theme="@style/Theme.ShipEats.DialogActivity" android:exported="false" />
+        
+        <activity android:name=".A6_Profile" android:exported="false" />
+        <activity android:name=".activity_add_item_mm" android:exported="false" />
+        <activity android:name=".ItemMenuPreviewActivity" android:exported="false" />
+        <activity android:name=".MenuManagementAddItemActivity" android:exported="false" /> 
+
+        <!-- Guest/Customer Flow Activities -->
+        <activity android:name=".C2_Create_Account" android:exported="false" />
+        <activity android:name=".C3_Menu_Page" android:exported="false" />
+        <activity android:name=".C4_Food_Details" android:exported="false" />
+        <activity android:name=".C5_History_Page" android:exported="false" />
+        <activity android:name=".C6_History_Details_Page" android:exported="false" />
+        <activity android:name=".C7_Shopping_Cart" android:exported="false" />
+        <activity android:name=".C8_Order_Placed" android:exported="false" />
+        <activity android:name=".C9_About" android:exported="false" />
+        <activity android:name=".C10_Notifications" android:exported="false" />
+        <activity android:name=".C11_Payment_Method" android:exported="false" />
+        <activity android:name=".C12_Profile" android:exported="false" />
+        <activity android:name=".C13_Settings_Page" android:exported="false" />
+        <activity android:name=".C14_Terms_And_Condition" android:exported="false" />
+        <activity android:name=".C15_Payment_Process" android:exported="false" />
+        <activity android:name=".Admin_Reviews_Activity" />
+        <activity android:name=".Customer_Reviews_Activity" />
+        
+    </application>
+
+</manifest>

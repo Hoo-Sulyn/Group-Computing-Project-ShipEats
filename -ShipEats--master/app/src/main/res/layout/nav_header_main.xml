@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:background="@color/primary_dark"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/close_tab_button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="end|top"
+        android:src="@drawable/ic_close"
+        android:contentDescription="Close Drawer" />
+
+    <ImageView
+        android:id="@+id/nav_header_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:paddingTop="8dp"
+        android:src="@drawable/placeholder_user" />
+
+    <TextView
+        android:id="@+id/nav_header_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Ship Eats User"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+</LinearLayout>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="28dp"
+    app:cardBackgroundColor="@color/beige"
+    android:layout_margin="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="600dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order details"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_cancel"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvOrderNoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Order No."
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvOrderNoValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#2510001"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/tvOrderNoLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvStatusLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Status"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/tvOrderNoLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ready"
+                android:textSize="10sp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="2dp"
+                android:background="@drawable/stat_preparing_bg"
+                android:textColor="@color/primary_dark"
+                app:layout_constraintTop_toTopOf="@id/tvStatusLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Date"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29/10/2025"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/tvDateLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvOrderTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Order Type"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/tvDateLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvOrderTypeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pickup on spot"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/tvOrderTypeLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#DDDDDD"
+                app:layout_constraintTop_toBottomOf="@id/tvOrderTypeLabel" />
+
+            <TextView
+                android:id="@+id/tvCustInfoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Customer Information"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/divider1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llCustName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvCustInfoLabel"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvCustName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="JiaHui Low"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCustPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/llCustName"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_call"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvCustPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="+60 12345678"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#DDDDDD"
+                app:layout_constraintTop_toBottomOf="@id/llCustPhone" />
+
+            <TextView
+                android:id="@+id/tvOrderItemsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Order Items"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Nasi Goreng x1"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvOrderItemsLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RM5.50"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/tvItemName"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSpecialInstructions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:text=""
+                android:textColor="#D97706"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/tvItemName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvItemName" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#DDDDDD"
+                app:layout_constraintTop_toBottomOf="@id/tvSpecialInstructions" />
+
+            <TextView
+                android:id="@+id/tvPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Payment"
+                android:textColor="#777777"
+                app:layout_constraintTop_toBottomOf="@id/divider3"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPayMeth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Payment Method"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvPayment"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPaymet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ONLINE"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/tvPayMeth"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPayStat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Payment Status"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvPayMeth"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPaystat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PAID"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/tvPayStat"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_box"
+                android:orientation="vertical"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPayStat">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total item price"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="RM5.50"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/primary_dark"
+                    android:text="Mark as Completed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="24dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</com.google.android.material.card.MaterialCardView>

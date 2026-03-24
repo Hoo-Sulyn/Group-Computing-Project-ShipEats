@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_rounded_bg"
+    android:paddingBottom="32dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCCCCC" />
+
+    <!-- Title row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter Orders"
+            android:textColor="#032565"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_reset_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:textColor="#FDB02C"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="4dp"/>
+    </RelativeLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Section label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIME PERIOD"
+        android:textColor="#888888"
+        android:textSize="11sp"
+        android:letterSpacing="0.1"
+        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Today -->
+    <LinearLayout
+        android:id="@+id/filter_today"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Today"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_today"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Yesterday -->
+    <LinearLayout
+        android:id="@+id/filter_yesterday"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yesterday"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_yesterday"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Last 7 Days -->
+    <LinearLayout
+        android:id="@+id/filter_7days"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Last 7 Days"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_7days"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Last 30 Days -->
+    <LinearLayout
+        android:id="@+id/filter_30days"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Last 30 Days"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_30days"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Last 3 Months -->
+    <LinearLayout
+        android:id="@+id/filter_3months"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Last 3 Months"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_3months"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- All History -->
+    <LinearLayout
+        android:id="@+id/filter_all"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="All History"
+            android:textColor="#1A1A1A"
+            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/check_all"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Divider before custom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Custom Date Range — special styled row -->
+    <LinearLayout
+        android:id="@+id/filter_custom"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_calendar"
+            android:layout_marginEnd="12dp"
+            app:tint="#032565"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Date Range"
+                android:textColor="#1A1A1A"
+                android:textSize="15sp"/>
+
+            <!-- Shows the selected range once picked -->
+            <TextView
+                android:id="@+id/tv_custom_range_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to select dates"
+                android:textColor="#888888"
+                android:textSize="11sp"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/check_custom"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#032565"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Apply Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_apply_filter"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="24dp"
+        android:text="Apply Filter"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:backgroundTint="#032565"
+        app:cornerRadius="12dp"/>
+
+</LinearLayout>

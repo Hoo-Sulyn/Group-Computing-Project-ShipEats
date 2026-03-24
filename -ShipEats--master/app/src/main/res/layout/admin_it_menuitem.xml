@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/light_gray"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="12dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgFood"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@color/light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedCornerImage" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/green"
+            app:chipMinHeight="24dp"
+            app:layout_constraintStart_toEndOf="@id/imgFood"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="12dp"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/swPublish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFoodName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Nasi Goreng"
+            android:textColor="#032565"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/chipStatus"
+            app:layout_constraintEnd_toStartOf="@+id/swPublish"
+            app:layout_constraintTop_toBottomOf="@id/chipStatus" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="RM 3.50"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tvFoodName"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodName" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRemove"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Remove from Menu"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:paddingHorizontal="12dp"
+            app:icon="@drawable/ic_delete"
+            app:iconSize="14dp"
+            app:iconTint="@color/red"
+            app:layout_constraintStart_toStartOf="@id/tvPrice"
+            app:layout_constraintTop_toBottomOf="@id/tvPrice"
+            app:strokeColor="@color/red" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Category: Main Dish"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/btnRemove"
+            app:layout_constraintTop_toBottomOf="@id/btnRemove" />
+
+        <TextView
+            android:id="@+id/tvSoldQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sold: 0"
+            android:textColor="#E69303"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCategory" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
