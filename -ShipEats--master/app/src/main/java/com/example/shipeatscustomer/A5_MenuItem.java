@@ -1,10 +1,14 @@
 package com.example.shipeatscustomer;
 
-class A5_MenuItem {
-    public String id, name, description, price, quantity, category, imageUrl;
+public class A5_MenuItem {
+    public String id, name, description, category, imageUrl;
+    // Changed from String to double/int
+    public double price;
+    public int quantity;
 
+    public A5_MenuItem() {} // Required for Firebase
 
-    public A5_MenuItem(String id, String name, String description, String price, String quantity, String category, String imageUrl) {
+    public A5_MenuItem(String id, String name, String description, double price, int quantity, String category, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
