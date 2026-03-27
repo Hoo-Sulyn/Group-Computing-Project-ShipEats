@@ -34,9 +34,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AdminDialogHelper {
     private static DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("food_items");
@@ -125,93 +128,176 @@ public class AdminDialogHelper {
 
         btnConfirm.setOnClickListener(v -> {
             try {
-                String name = etName.getText().toString().trim();
-                String desc = etDesc.getText().toString().trim();
-                String priceTxt = etPrice.getText().toString().trim();
-                String qtyTxt = etQuantity.getText().toString().trim();
+                String name     = etName    .getText().toString().trim();
+                String desc     = etDesc    .getText().toString().trim();
+                String priceTxt = etPrice   .getText().toString().trim();
+                String qtyTxt   = etQuantity.getText().toString().trim();
 
                 if (name.isEmpty() || priceTxt.isEmpty()) {
                     Toast.makeText(activity, "Fill required fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String id = isNew ? databaseRef.push().getKey() : item.getId();
-                double price = Double.parseDouble(priceTxt);
-                int quantity = Integer.parseInt(qtyTxt);
+                double price    = Double.parseDouble(priceTxt);
+                int    quantity = Integer.parseInt(qtyTxt);
                 String category = spinnerCat.getSelectedItem().toString();
-
-                String imageUrl = (selectedImageUri != null) ? selectedImageUri.toString() :
-                                 (item != null && item.getImageUrl() != null ? item.getImageUrl() : "");
+                String id       = isNew ? databaseRef.push().getKey() : item.getId();
 
                 // AI Integration: Carry over existing AI stats if editing, otherwise default to 0
-                int orderCount = (!isNew && item != null) ? item.getOrderCount() : 0;
-                int clickCount = (!isNew && item != null) ? item.getClickCount() : 0;
-                String ingredients = (!isNew && item != null && item.getIngredients() != null) ? item.getIngredients() : "";
+                int    orderCount  = (!isNew && item != null) ? item.getOrderCount()  : 0;
+                int    clickCount  = (!isNew && item != null) ? item.getClickCount()  : 0;
+                String ingredients = (!isNew && item != null && item.getIngredients() != null)
+                        ? item.getIngredients() : "";
 
-                FoodItem updatedItem = new FoodItem(id, name, desc, category, price, quantity, imageUrl, orderCount, clickCount, ingredients, 0.0, 0);
+                // Disable confirm button to prevent double-tap
+                btnConfirm.setEnabled(false);
+                btnConfirm.setText("Saving...");
 
-                // MULTI-PATH UPDATE
-                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-                java.util.HashMap<String, Object> updateMap = new java.util.HashMap<>();
+                if (selectedImageUri != null) {
+                    // ─────────────────────────────────────────────────────────
+                    //  NEW: Upload image to Firebase Storage first,
+                    //       then save the permanent https:// download URL.
+                    //
+                    //  Previously: imageUrl = selectedImageUri.toString()
+                    //  This saved a content:// local path that only works
+                    //  on the admin's device — broken for all other devices.
+                    //
+                    //  Now: we upload to Firebase Storage and get a real URL.
+                    // ─────────────────────────────────────────────────────────
+                    String fileName = "food_images/" + id + "_" + UUID.randomUUID() + ".jpg";
+                    StorageReference storageRef = FirebaseStorage.getInstance()
+                            .getReference(fileName);
 
-                // ONLY write to food_items (Inventory).
-                // menu_items is managed separately by the admin
-                // inside Menu Management → "Add from Inventory".
-                updateMap.put("/food_items/" + id, updatedItem);
-
-                // If editing an item that already exists in menu_items,
-                // keep it in sync (name, price, quantity etc.) but do NOT
-                // auto-add new items to menu_items.
-                if (!isNew) {
-                    // Check and sync to menu_items only if it already exists there
-                    rootRef.child("menu_items").child(id)
-                            .addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
-                                @Override
-                                public void onDataChange(@androidx.annotation.NonNull com.google.firebase.database.DataSnapshot snapshot) {
-                                    if (snapshot.exists()) {
-                                        // Item already in menu - sync the updated fields
-                                        updateMap.put("/menu_items/" + id, updatedItem);
-                                    }
-                                    // Perform the actual write
-                                    rootRef.updateChildren(updateMap).addOnSuccessListener(aVoid -> {
-                                        dialog.dismiss();
-                                        showStatusDialog(activity, R.layout.admin_dialog_menu_complete);
-                                    }).addOnFailureListener(e ->
-                                            Toast.makeText(activity, "Update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-                                }
-                                @Override
-                                public void onCancelled(@androidx.annotation.NonNull com.google.firebase.database.DatabaseError error) {
-                                    // Still save to food_items even if check fails
-                                    rootRef.updateChildren(updateMap).addOnSuccessListener(aVoid -> {
-                                        dialog.dismiss();
-                                        showStatusDialog(activity, R.layout.admin_dialog_menu_complete);
-                                    });
-                                }
+                    storageRef.putFile(selectedImageUri)
+                            .addOnSuccessListener(taskSnapshot ->
+                                    storageRef.getDownloadUrl()
+                                            .addOnSuccessListener(downloadUri -> {
+                                                // Got a real https:// URL — save to database
+                                                String imageUrl = downloadUri.toString();
+                                                saveFoodItem(activity, dialog, isNew, id,
+                                                        name, desc, category, price, quantity,
+                                                        imageUrl, orderCount, clickCount,
+                                                        ingredients, item, btnConfirm);
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                btnConfirm.setEnabled(true);
+                                                btnConfirm.setText(isNew ? "Add Item" : "Save Changes");
+                                                Toast.makeText(activity,
+                                                        "Failed to get image URL: " + e.getMessage(),
+                                                        Toast.LENGTH_SHORT).show();
+                                            })
+                            )
+                            .addOnFailureListener(e -> {
+                                btnConfirm.setEnabled(true);
+                                btnConfirm.setText(isNew ? "Add Item" : "Save Changes");
+                                Toast.makeText(activity,
+                                        "Image upload failed: " + e.getMessage(),
+                                        Toast.LENGTH_SHORT).show();
                             });
+
                 } else {
-                    // New item - only write to food_items, never auto-add to menu_items
-                    rootRef.updateChildren(updateMap).addOnSuccessListener(aVoid -> {
-                        dialog.dismiss();
-                        // No broadcastNewMenuAdded — item is not in menu yet
-                        showStatusDialog(activity, R.layout.admin_dialog_menu_add);
-                    }).addOnFailureListener(e ->
-                            Toast.makeText(activity, "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    // No new image selected — keep existing URL or empty string
+                    String existingUrl = (item != null && item.getImageUrl() != null)
+                            ? item.getImageUrl() : "";
+                    saveFoodItem(activity, dialog, isNew, id,
+                            name, desc, category, price, quantity,
+                            existingUrl, orderCount, clickCount,
+                            ingredients, item, btnConfirm);
                 }
 
             } catch (NumberFormatException e) {
                 Toast.makeText(activity, "Invalid number format", Toast.LENGTH_SHORT).show();
+                btnConfirm.setEnabled(true);
+                btnConfirm.setText(isNew ? "Add Item" : "Save Changes");
             }
         });
 
         btnClose.setOnClickListener(v -> dialog.dismiss());
-        
-        // Ensure static references are cleared when dialog is hidden to avoid leakage
+
+        // Clear static state on dismiss
         dialog.setOnDismissListener(d -> {
             selectedImageUri = null;
-            dialogImageView = null;
+            dialogImageView  = null;
         });
 
         dialog.show();
+    }
+
+    // ── Save FoodItem to Firebase Realtime Database ──────────────
+    private static void saveFoodItem(AppCompatActivity activity,
+                                     Dialog dialog,
+                                     boolean isNew,
+                                     String id,
+                                     String name,
+                                     String desc,
+                                     String category,
+                                     double price,
+                                     int quantity,
+                                     String imageUrl,
+                                     int orderCount,
+                                     int clickCount,
+                                     String ingredients,
+                                     FoodItem existingItem,
+                                     MaterialButton btnConfirm) {
+
+        FoodItem updatedItem = new FoodItem(
+                id, name, desc, category, price, quantity,
+                imageUrl, orderCount, clickCount, ingredients, 0.0, 0);
+
+        // MULTI-PATH UPDATE
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        java.util.HashMap<String, Object> updateMap = new java.util.HashMap<>();
+
+        // Always write to food_items
+        updateMap.put("/food_items/" + id, updatedItem);
+
+        if (!isNew) {
+            // If editing, sync menu_items only if item already exists there
+            rootRef.child("menu_items").child(id)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                updateMap.put("/menu_items/" + id, updatedItem);
+                            }
+                            rootRef.updateChildren(updateMap)
+                                    .addOnSuccessListener(aVoid -> {
+                                        dialog.dismiss();
+                                        showStatusDialog(activity,
+                                                R.layout.admin_dialog_menu_complete);
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        btnConfirm.setEnabled(true);
+                                        btnConfirm.setText("Save Changes");
+                                        Toast.makeText(activity,
+                                                "Update failed: " + e.getMessage(),
+                                                Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            rootRef.updateChildren(updateMap)
+                                    .addOnSuccessListener(aVoid -> {
+                                        dialog.dismiss();
+                                        showStatusDialog(activity,
+                                                R.layout.admin_dialog_menu_complete);
+                                    });
+                        }
+                    });
+        } else {
+            // New item — only write to food_items
+            rootRef.updateChildren(updateMap)
+                    .addOnSuccessListener(aVoid -> {
+                        dialog.dismiss();
+                        showStatusDialog(activity, R.layout.admin_dialog_menu_add);
+                    })
+                    .addOnFailureListener(e -> {
+                        btnConfirm.setEnabled(true);
+                        btnConfirm.setText("Add Item");
+                        Toast.makeText(activity,
+                                "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        }
     }
 
     public static void handleImageResult(Uri uri) {
