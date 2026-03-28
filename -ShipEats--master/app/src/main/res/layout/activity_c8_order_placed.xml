@@ -44,38 +44,14 @@
         android:text="A0001"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textStyle="normal"
         android:textColor="#888484"
-        android:text="Your Pickup PIN:"/>
-
-    <TextView
-        android:id="@+id/pickup_pin_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:textColor="#E69303"
-        android:text="----"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/save_receipt_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="50dp"
-        android:paddingVertical="12dp"
-        android:text="Save PIN to Gallery"
-        android:textColor="#1E5D8B"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="16dp"
-        app:strokeColor="#1E5D8B"
-        app:strokeWidth="2dp" />
+        android:textAlignment="center"
+        android:text="You will be provided a pick-up PIN when your order is ready!"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/done_button"
